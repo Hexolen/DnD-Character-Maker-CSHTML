@@ -1,0 +1,174 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-1 {
+    height: 500px;
+    overflow-y: auto;
+}
+
+.column-2 {
+    flex: 1;
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row;
+    }
+
+    .column-1, .column-2 {
+        height: calc(100vh - 75px);
+        overflow: auto;
+    }
+}
+.character{
+    min-height:16px;
+}
+
+.square {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-size: 20px;
+    background-color: azure;
+    border: 1px solid black;
+    padding-bottom: 0px;
+}
+
+    .square:hover {
+        background-color: rgb(189, 199, 199);
+        border: 1px solid black;
+    }
+
+    .square:active {
+        background-color: rgb(134, 141, 141) !important;
+        border: 1px solid black;
+    }
+
+#character-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.character-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.attributes {
+    height: 100%;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 300;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    overflow: hidden;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.background-row {
+    position: relative;
+    overflow: hidden; /* Resmin taþmasýný önler */
+}
+
+    .background-row::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('/Arkaplan.png');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 1; /* Ýçeriklerin arka plan resminin üstünde görünmesi için */
+    }
+
+.square-border {
+    height: 60px;
+    border-radius: 0 !important; /* Kare þeklinde çerçeve */
+}
+
+.rounded-border {
+    width: 50px;
+    border-radius: 30px !important; /* Yuvarlatýlmýþ köþeler */
+}
+.form-check-input {
+            cursor: pointer;
+        }
+
+.custom-textarea {
+    border: 2px solid black;
+    position: relative;
+    resize: none;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: initial !important;
+}
+
+.prof-textarea {
+    width: 100%;
+    height: 300px; /* Height can be adjusted */
+}
+.maxHitPoint-textarea {
+    width: 100%;
+    height: 35px; /* Height can be adjusted */
+}
+.currentHitPoint-textarea {
+    width: 100%;
+    height: 100px; /* Height can be adjusted */
+}
+.features-textarea {
+    width: 100%;
+    height: 800px; /* Height can be adjusted */
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none !important; /* Remove the blue outline */
+    box-shadow: none !important; /* Remove Bootstrap's box-shadow */
+    border-color: initial !important; /* Keep the initial border color */
+}
+
+.custom-label {
+    font-weight: bold;
+}
+
+.small-font {
+    font-size: 14px; /* Küçük font boyutu */
+}
+
+.disable-label-pointer-events {
+}

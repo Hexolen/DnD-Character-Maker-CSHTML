@@ -1,0 +1,551 @@
+﻿@{
+    ViewData["Title"] = "DnD Character Maker";
+}
+
+<div class="column-1 col-lg-3 p-0" id="character-container">
+    
+</div>
+<div class="column-2 col-lg-9">
+    <div class="row" style="border: solid 1px black">
+        <div class="row align-items-center bg-warning pt-2 pb-2">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg text-center" id="EBCharacterName">
+                    <label for="EBCharacterName" class="mt-2 disable-label-pointer-events">Character Name</label>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-12 pt-3">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBClassLevel">
+                            <label for="EBClassLevel" class="mb-3 mt-0 disable-label-pointer-events">Class &amp; Level</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBBackground">
+                            <label for="EBBackground" class="mb-3 mt-0 disable-label-pointer-events">Background</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBPlayerName">
+                            <label for="EBPlayerName" class="mb-3 mt-0 disable-label-pointer-events">Player Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBRace">
+                            <label for="EBRace" class="mb-3 mt-0 disable-label-pointer-events">Race</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBAlignment">
+                            <label for="EBAlignment" class="mb-3 mt-0 disable-label-pointer-events">Alignment</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBExperiencePoints">
+                            <label for="EBExperiencePoints" class="mb-3 mt-0 disable-label-pointer-events">Experience Points</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="col-4 bg-danger" id="abilitiesDiv"></div>
+                    <div class="col-8 bg-info">
+                        <div class="row pt-1 pb-1">
+                            <div class="col-4 align-items-center">
+                                <input type="text" class="form-control text-center" style="width: 60px;" id="inspiration">
+                            </div>
+                            <div class="col-6 align-items-center">
+                                <label class="small-font" for="inspiration">INSPIRATION</label>
+                            </div>
+                        </div>
+                        <div class="row pt-1 pb-1">
+                            <div class="col-4 align-items-center">
+                                <input type="text" class="form-control text-center" style="width: 60px;" id="proficiencyBonus">
+                            </div>
+                            <div class="col-6 align-items-center">
+                                <label class="small-font" for="inspiration">PROFICIENCY BONUS</label>
+                            </div>
+                        </div>
+                        <div class="row pt-1 pb-1 bg-success">
+                            <div id="savingThrowsDiv">
+                            </div>
+                            <div class="text-center fw-bold">Saving Throws</div>
+                        </div>
+                        <div class="row pt-1 pb-1" id="skillsDiv">
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-1 pb-1">
+                    <div class="col-4 align-items-center">
+                        <input type="text" class="form-control text-center" style="width: 60px;" id="passiveWisdom">
+                    </div>
+                    <div class="col-6 align-items-center">
+                        <label class="small-font text-center" for="passiveWisdom">PASSIVE WISDOM</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <div class="position-relative">
+                            <textarea class="custom-textarea prof-textarea form-control"></textarea>
+                            <div class="text-center" style="font-weight: bold;">OTHER PROFICIENCIES & LANGUAGES</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="row align-items-center">
+                    <div class="col-4 align-items-center">
+                        <input type="text" class="form-control text-center" style="width: 60px;" id="AC">
+                        <label class="small-font text-center" for="AC">ARMOR CLASS</label>
+                    </div>
+                    <div class="col-4 align-items-center">
+                        <input type="text" class="form-control text-center" style="width: 60px;" id="AC">
+                        <label class="small-font text-center" for="AC">INITIATIVE</label>
+                    </div>
+                    <div class="col-4 align-items-center">
+                        <input type="text" class="form-control text-center" style="width: 60px;" id="AC">
+                        <label class="small-font text-center" for="AC">SPEED</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container" style="border: solid 1px black">
+                        <div class="row">
+                            <div class="col-4">
+                                <label class="small-font text-center" for="hitPointMax">Hit Point Maximum</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea text-center" id="hitPointMax">
+                            </div>
+                        </div>
+                        <div>
+                            <textarea class="custom-textarea currentHitPoint-textarea centered-textarea text-center form-control" id="currenthitPoint"></textarea>
+                            <div class="text-center" style="font-weight: bold;">Current Hit Points</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container" style="border: solid 1px black">
+                        <input type="text" class="form-control custom-textarea currentHitPoint-textarea text-center" id="temporaryhitPoint">
+                        <div class="text-center" style="font-weight: bold;">Temporary Hit Points</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="container" style="border: solid 1px black">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="small-font text-center" for="totalHitDice">Total</label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control custom-textarea maxHitPoint-textarea text-center" id="totalHitDice">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <textarea class="custom-textarea currentHitPoint-textarea centered-textarea text-center form-control" id="hitDice"></textarea>
+                                <div class="text-center" style="font-weight: bold;">Hit Dice</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="container" style="border: solid 1px black">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="small-font text-center">Successes</label>
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-check-input" type="checkbox" id="DSS1">
+                                    <input class="form-check-input" type="checkbox" id="DSS2">
+                                    <input class="form-check-input" type="checkbox" id="DSS3">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="small-font text-center">Failures</label>
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-check-input" type="checkbox" id="DSF1">
+                                    <input class="form-check-input" type="checkbox" id="DSF2">
+                                    <input class="form-check-input" type="checkbox" id="DSF3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container" style="border: solid 1px black">
+                        <div class="row">
+                            <div class="col-5">
+                                <div>Name</div>
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName1">
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName2">
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName3">
+                            </div>
+                            <div class="col-3">
+                                <div>ATK Bonus</div>
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponBonus1">
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponBonus2">
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponBonus3">
+                            </div>
+                            <div class="col-4">
+                                <div>DAMAGE/TYPE</div>
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponDamage1">
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponDamage2">
+                                <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponDamage3">
+                            </div>
+                            <div class="row ">
+                                <textarea class="custom-textarea prof-textarea form-control"></textarea>
+                             </div>
+                            <div class="text-center" style="font-weight: bold;">Attacks & Spellcasting</div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container" style="border: solid 1px black">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label class="small-font text-center" for="AC">CP</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label class="small-font text-center" for="AC">SP</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label class="small-font text-center" for="AC">EP</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label class="small-font text-center" for="AC">GP</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label class="small-font text-center" for="AC">PP</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control custom-textarea maxHitPoint-textarea" id="weaponName1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <textarea class="custom-textarea prof-textarea form-control"></textarea>
+                            </div>
+                            <div class="text-center" style="font-weight: bold;">EQUIPMENT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="row">
+                    <div class="container" style="border: solid 1px black">
+                        <div class="row">
+                            <div class="container" style="border: solid 1px black">
+                                <textarea class="custom-textarea currentHitPoint-textarea form-control"></textarea>
+                                <div class="text-center" style="font-weight: bold;">PERSONALITY TRAITS</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="border: solid 1px black">
+                                <textarea class="custom-textarea currentHitPoint-textarea form-control"></textarea>
+                                <div class="text-center" style="font-weight: bold;">IDEALS</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="border: solid 1px black">
+                                <textarea class="custom-textarea currentHitPoint-textarea form-control"></textarea>
+                                <div class="text-center" style="font-weight: bold;">BONDS</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="border: solid 1px black">
+                                <textarea class="custom-textarea currentHitPoint-textarea form-control"></textarea>
+                                <div class="text-center" style="font-weight: bold;">FLAWS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container" style="border: solid 1px black">
+                        <textarea class="custom-textarea features-textarea form-control"></textarea>
+                        <div class="text-center" style="font-weight: bold;">FEATURES & TRAITS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="border: solid 1px black">
+        <div class="row align-items-center bg-warning pt-2 pb-2">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg text-center" id="EBCharacterName">
+                    <label for="EBCharacterName" class="mt-2 disable-label-pointer-events">Character Name</label>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-12 pt-3">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBClassLevel">
+                            <label for="EBClassLevel" class="mb-3 mt-0 disable-label-pointer-events">AGE</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBBackground">
+                            <label for="EBBackground" class="mb-3 mt-0 disable-label-pointer-events">HEIGHT</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBPlayerName">
+                            <label for="EBPlayerName" class="mb-3 mt-0 disable-label-pointer-events">WEIGHT</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBRace">
+                            <label for="EBRace" class="mb-3 mt-0 disable-label-pointer-events">EYES</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBAlignment">
+                            <label for="EBAlignment" class="mb-3 mt-0 disable-label-pointer-events">SKIN</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBExperiencePoints">
+                            <label for="EBExperiencePoints" class="mb-3 mt-0 disable-label-pointer-events">HAIR</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="container" style="border: solid 1px black">
+                    <div class="row">
+                        <div class="container">
+                            <textarea class="custom-textarea prof-textarea form-control"></textarea>
+                            <div class="text-center" style="font-weight: bold;">CHARACTER APPEARANCE</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="border: solid 1px black">
+                    <textarea class="custom-textarea features-textarea form-control"></textarea>
+                    <div class="text-center" style="font-weight: bold;">CHARACTER BACKSTORY</div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <div class="container-fluid" style="border: solid 1px black">
+                    <div class="row">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-7">
+                                    <textarea class="custom-textarea prof-textarea form-control"></textarea>
+                                </div>
+                                <div class="col-5">
+                                    <div class="container" style="border: solid 1px black">
+                                        <label for="orgName" class="disable-label-pointer-events">Name</label>
+                                        <textarea class="custom-textarea maxHitPoint-textarea" id="orgName"></textarea>
+                                        <textarea class="custom-textarea prof-textarea" id="orgName"></textarea>
+                                    </div>
+                                    <div class="text-center" style="font-weight: lighter;">SYMBOL</div>
+                                </div>
+                            <div class="text-center" style="font-weight: bold;">ALLIES &amp; ORGANIZATIONS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="container" style="border: solid 1px black">
+                    <textarea class="custom-textarea prof-textarea form-control"></textarea>
+                    <div class="text-center" style="font-weight: bold;">ADDITIONAL FEATURES &amp; TRAITS</div>
+                </div>
+                <div class="container" style="border: solid 1px black">
+                    <textarea class="custom-textarea prof-textarea form-control"></textarea>
+                    <div class="text-center" style="font-weight: bold;">TREASURE</div>
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="row" style="border: solid 1px black">
+        <div class="row align-items-center bg-warning pt-2 pb-2">
+            <div class="col-md-5 col-sm-12">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-lg text-center" id="spellCastingClass">
+                    <label for="spellCastingClass" class="mt-2 disable-label-pointer-events">SPELLCASTING CLASS</label>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-12 pt-3">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBClassLevel">
+                            <label for="EBClassLevel" class="mb-3 mt-0 disable-label-pointer-events">SPELLCASTING ABILITY</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBBackground">
+                            <label for="EBBackground" class="mb-3 mt-0 disable-label-pointer-events">SPELL SAVE DC</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-sm" id="EBPlayerName">
+                            <label for="EBPlayerName" class="mb-3 mt-0 disable-label-pointer-events">SPELL ATTACK</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    fetch('/home/GetCharacters').then(response => response.json()).then(data => {WriteCharacters(data);})
+
+    var abilities = ["STRENGTH", "DEXTERITY", "CONSTITUTION", "INTELLIGENCE", "WISDOM", "CHARISMA"];
+    var savingThrows = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+    var skills = [
+        "Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", 
+        "History", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", 
+        "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"
+    ];
+
+    function createCharacterButton(data) {
+        var button = document.createElement('button');
+        button.classList.add('btn', 'square');
+        button.onclick = function () {
+            alert(data.id);
+        };
+        button.innerHTML = `
+                <div class="row" style="height: 60px;">
+                            <div class="col-12 character-name vertical-center">${data.name}</div>
+                </div>
+                <div class="row" style="height: 50px;">
+                            <div class="col-3 attributes vertical-center">${data.creator}</div>
+                                <div class="col-3 attributes vertical-center">${data.classLevel}</div>
+                            <div class="col-3 attributes vertical-center">${data.race}</div>
+                                <div class="col-3 attributes vertical-center" style="border-right: none;">${data.background}</div>
+                </div>
+            `;
+        return button;
+    }
+
+    function WriteCharacters(data) {
+        const container = document.getElementById('character-container');
+        data.forEach((ch, index) => {
+            container.appendChild(createCharacterButton(ch));
+        });
+    }
+
+    function makeAbilityDiv(lbl, i, divID) {
+        var div = document.createElement("div");
+        div.classList.add('row', 'align-items-center', 'pt-2', 'pb-2');
+        var p0 = lbl;
+        var p1 = "abi"+i+"Num";
+        var p2 = "abi" + i + "Mod";
+
+        div.innerHTML = `
+            <div class="form-group text-center">
+                <label class="small-font" for="${p1}">${p0}</label>
+                <input type="text" class="form-control form-control-lg text-center square-border" id="${p1}">
+            </div>
+            <div class="form-group mt-1" style="width: 90px; padding-left: 30px;">
+                    <input type="text" class="form-control text-center rounded-border" id="${p2}">
+            </div>
+        `;
+        divID.appendChild(div);
+    }
+    function makeSTDiv(lbl, i, divID) {
+        var div = document.createElement("div");
+        div.classList.add('row', 'align-items-center', 'mb-2');
+        var p0 = lbl;
+        var p1 = "ST" + i + "Num";
+        var p2 = "ST" + i + "State";
+
+        div.innerHTML = `
+            <div class="col-2 align-items-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="${p2}">
+                </div>
+            </div>
+            <div class="col-4 align-items-center">
+                <input type="text" class="form-control text-center" style="width: 60px;" id="${p1}">
+            </div>
+            <div class="col-6 align-items-center">
+                <label class="small-font" for="strengthSTNum1">${p0}</label>
+            </div>
+        `;
+        divID.appendChild(div);
+    }
+    function makeSkillsDiv(lbl, i, divID) {
+        var div = document.createElement("div");
+        div.classList.add('row', 'align-items-center', 'mb-2');
+        var p0 = lbl;
+        var p1 = "skill" + i + "Num";
+        var p2 = "skill" + i + "State";
+
+        div.innerHTML = `
+            <div class="col-2 align-items-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="${p2}">
+                </div>
+            </div>
+            <div class="col-4 align-items-center">
+                <input type="text" class="form-control text-center" style="width: 60px;" id="${p1}">
+            </div>
+            <div class="col-6 align-items-center">
+                <label class="small-font" for="strengthSTNum1">${p0}</label>
+            </div>
+        `;
+        divID.appendChild(div);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        var abilitiesDiv = document.getElementById("abilitiesDiv");
+        for (i = 0; i < abilities.length; i++){
+            makeAbilityDiv(abilities[i], i, abilitiesDiv);
+        }
+        for (i = 0; i < savingThrows.length; i++) {
+            makeSTDiv(savingThrows[i], i, savingThrowsDiv);
+        }
+        for (i = 0; i < skills.length; i++) {
+            makeSkillsDiv(skills[i], i, skillsDiv);
+        }
+    });
+</script>
